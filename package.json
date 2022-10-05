@@ -14,6 +14,9 @@
   "dependencies": {
     "cypress": "10.8.0",
     "json2csv": "5.0.7",
-    "tabletojson": "2.0.7"
+    "tabletojson": "2.0.7",
+    "cy-verify-downloads": "0.1.11"
+  },
+  "devDependencies": {
   }
 }

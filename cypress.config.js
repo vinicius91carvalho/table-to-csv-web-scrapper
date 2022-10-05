@@ -3,6 +3,7 @@ const TableToJson = require('tabletojson').Tabletojson
 const { Parser } = require('json2csv')
 const fs = require('fs')
 const path = require('path')
+const { isFileExist } = require('cy-verify-downloads');
 
 module.exports = defineConfig({
   e2e: {
@@ -18,7 +19,8 @@ module.exports = defineConfig({
           const filePath = path.join('csv', `${fileName}.csv`)
           fs.writeFileSync(filePath, content)
           return null
-        }
+        },
+        isFileExist
       })
     },
     defaultCommandTimeout: 10000,

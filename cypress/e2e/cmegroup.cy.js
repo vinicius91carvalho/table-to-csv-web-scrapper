@@ -19,7 +19,7 @@ describe('CME Group', () => {
       'sec-ch-ua-mobile': '?0',
       'sec-ch-ua-platform': '"macOS"',
     }
-    cy.visit('https://www.cmegroup.com/markets/fx/emerging-market/brazilian-real.html', {
+    cy.visit('https://www.cmegroup.com/markets/fx/emerging-market/brazilian-real.quotes.html', {
       headers
     })
 

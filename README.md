@@ -13,6 +13,10 @@
 
 * The CSV files will be generated in the csv folder for each site that was crawled.
 
+# Zip Files
+
+* Will be saved on `${projectDir/cypress/downloads}`
+
 # Tools
 
 * cypress

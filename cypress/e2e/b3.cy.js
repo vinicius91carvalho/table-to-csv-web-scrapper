@@ -1,5 +1,5 @@
 describe('B3', () => {
-  it('should download main table as a CSV', () => {
+  it('should download file', () => {
     const headers = {
       'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
       'Accept-Encoding': 'gzip, deflate, br',
@@ -24,7 +24,25 @@ describe('B3', () => {
     })
 
     cy.get('[id="8AA8D0975E207D10015E29F06C0D5F8E"]').click()
+
+
+    cy.window().document().then(function (doc) {
+  doc.addEventListener('click', () => {
+    setTimeout(function () { doc.location.reload() }, 5000)
+  })
+  
+  /* Make sure the file exists */
+  cy.intercept('/', (req) => {
+    req.reply((res) => {
+      expect(res.statusCode).to.equal(200);
+    });
+  });
+
+  cy.get('[id="botao-download"]').click()
+
+    cy.verifyDownload('pesquisa-pregao.zip');
+})
     
-    cy.get('[id="botao-download"]').click()
+    
   })
 })
